@@ -1,0 +1,35 @@
+<?php declare(strict_types=1);
+namespace Codedive\LaravelNcloudSdk\Services\CloudOutboundMailer\Responses;
+
+use Codedive\LaravelNcloudSdk\Core\ApiResponse;
+
+/**
+ * 생성한 카테고리의 이름 및 위치를 수정
+ * @see https://api.ncloud-docs.com/docs/ai-application-service-cloudoutboundmailer-updatecategory
+ */
+class UpdateCategoryResponse extends ApiResponse
+{
+    /**
+     * @return int 수정한 카테고리의 SID
+     */
+    public function getSid(): int
+    {
+        return (int)$this->parsed['sid'];
+    }
+
+    /**
+     * @return int 부모 카테고리의 SID
+     */
+    public function getParentSid(): int
+    {
+        return (int)$this->parsed['parentSid'];
+    }
+
+    /**
+     * @return string 수정한 카테고리의 이름
+     */
+    public function getName(): string
+    {
+        return $this->parsed['name'];
+    }
+}
